@@ -6,35 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_hashtags"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/tv_top"
-        android:textSize="@dimen/text_tv"
-        android:textColor="@color/blue"
+    <androidx.recyclerview.widget.RecyclerView
+        app:reverseLayout="true"
+        android:id="@+id/rvHints"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/etText"
         app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/et_message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:textAlignment="center"
-        android:hint="@string/enter_text"
-        android:inputType="none"
-        android:textSize="@dimen/et_size" />
-
     <Button
-        android:id="@+id/btn_click"
+        android:id="@+id/btn_Send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/et_message"
-        app:layout_constraintTop_toBottomOf="@id/et_message"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/click"/>
+        android:padding="12dp"
+        android:text="@string/add"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/etText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_text"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_Send"
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="username" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
